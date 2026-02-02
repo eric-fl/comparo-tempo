@@ -1007,5 +1007,299 @@ const marketOffers = [
       hp: 0.23018,
       hc: 0.17478
     }
+  },
+  {
+    provider: "Alpiq",
+    offer: "Électricité Stable",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.56
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.32
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.84
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.49
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.24
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.37
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.54
+      }
+    ],
+    tariff: {
+      hp: 0.18952,
+      hc: 0.14578
+    }
+  },
+  {
+    provider: "Alpiq",
+    offer: "Électricité Référence",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.56
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.32
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.84
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.49
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.24
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.37
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.54
+      }
+    ],
+    tariff: {
+      hp: 0.19968,
+      hc: 0.15303
+    }
+  },
+  {
+    provider: "Mint Energie",
+    offer: "Online & Green",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.83
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.83
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.68
+      },
+      {
+        kva: 15,
+        monthlyCost: 27.30
+      },
+      {
+        kva: 18,
+        monthlyCost: 31.03
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.97
+      },
+      {
+        kva: 30,
+        monthlyCost: 46.27
+      },
+      {
+        kva: 36,
+        monthlyCost: 53.63
+      }
+    ],
+    tariff: {
+      hp: 0.18780,
+      hc: 0.14460
+    }
+  },
+  {
+    provider: "Mint Energie",
+    offer: "Classic & Green",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.47
+      },
+      {
+        kva: 9,
+        monthlyCost: 16.62
+      },
+      {
+        kva: 12,
+        monthlyCost: 21.36
+      },
+      {
+        kva: 15,
+        monthlyCost: 24.91
+      },
+      {
+        kva: 18,
+        monthlyCost: 28.45
+      },
+      {
+        kva: 24,
+        monthlyCost: 36.75
+      },
+      {
+        kva: 30,
+        monthlyCost: 44.44
+      },
+      {
+        kva: 36,
+        monthlyCost: 51.53
+      }
+    ],
+    tariff: {
+      hp: 0.20910,
+      hc: 0.16460
+    }
+  },
+  {
+    provider: "Mint Energie",
+    offer: "Smart & Green",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 16.67
+      },
+      {
+        kva: 9,
+        monthlyCost: 17.82
+      },
+      {
+        kva: 12,
+        monthlyCost: 22.56
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.11
+      },
+      {
+        kva: 18,
+        monthlyCost: 29.65
+      },
+      {
+        kva: 24,
+        monthlyCost: 37.95
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.64
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.73
+      }
+    ],
+    tariff: {
+      hp: 0.20910,
+      hc: 0.16460
+    }
+  },
+  {
+    provider: "Dyneff",
+    offer: "Électricité HP/HC",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.56
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.32
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.84
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.49
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.24
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.37
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.54
+      }
+    ],
+    tariff: {
+      hp: 0.19496,
+      hc: 0.15930
+    }
+  },
+  {
+    provider: "Dyneff",
+    offer: "Électricité Verte HP/HC",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.56
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.32
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.84
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.49
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.24
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.37
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.54
+      }
+    ],
+    tariff: {
+      hp: 0.19796,
+      hc: 0.16230
+    }
   }
 ];
