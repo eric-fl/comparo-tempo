@@ -727,10 +727,13 @@ $(document).ready(function() {
     function displayMarketComparison(totalHP, totalHC, totalCostTempo, numberOfMonths) {
         const subscriptionType = $('#subscriptionType').val();
         const $tableBody = $('#comparisonTableBody');
+        const $localTableBody = $('#localComparisonTableBody');
         $tableBody.empty();
+        $localTableBody.empty();
         
         // Tableau pour stocker toutes les offres avec leur coût total
         const allOffersWithCost = [];
+        const localOffersWithCost = [];
         
         // Ajouter Tempo uniquement pour la comparaison de la meilleure offre
         const tempoOffer = {
@@ -805,7 +808,7 @@ $(document).ready(function() {
             `;
             
             // Stocker l'offre avec toutes ses informations
-            allOffersWithCost.push({
+            const offerData = {
                 provider: offer.provider,
                 offerInfo: offerInfo,
                 calculationDetails: calculationDetails,
@@ -813,11 +816,19 @@ $(document).ready(function() {
                 differenceText: differenceText,
                 offerName: `${offer.provider} - ${offer.offer}`,
                 isTempo: false
-            });
+            };
+            
+            // Vérifier si c'est une offre locale
+            if (offer.provider.includes('(localement)')) {
+                localOffersWithCost.push(offerData);
+            } else {
+                allOffersWithCost.push(offerData);
+            }
         });
         
         // Trier les offres par coût total croissant
         allOffersWithCost.sort((a, b) => a.totalCost - b.totalCost);
+        localOffersWithCost.sort((a, b) => a.totalCost - b.totalCost);
         
         // Comparer Tempo avec toutes les offres pour déterminer la meilleure
         const allOffersIncludingTempo = [tempoOffer, ...allOffersWithCost];
@@ -864,8 +875,30 @@ $(document).ready(function() {
             $tableBody.append(row);
         });
         
-        // Afficher le tableau
+        // Générer les lignes du tableau local
+        localOffersWithCost.forEach(offerData => {
+            const row = `
+                <tr>
+                    <td><strong>${offerData.provider}</strong></td>
+                    <td>${offerData.offerInfo}</td>
+                    <td>${offerData.calculationDetails}</td>
+                    <td><strong>${offerData.totalCost.toFixed(2)} €</strong></td>
+                    <td>${offerData.differenceText}</td>
+                </tr>
+            `;
+            
+            $localTableBody.append(row);
+        });
+        
+        // Afficher les tableaux
         $('#marketComparison').show();
+        
+        // Afficher le tableau local seulement s'il y a des offres locales
+        if (localOffersWithCost.length > 0) {
+            $('#localComparison').show();
+        } else {
+            $('#localComparison').hide();
+        }
     }
 
     function displayComparisonSummary(totalCostTempo, totalCostBleu) {
