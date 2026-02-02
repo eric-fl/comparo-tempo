@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse Consommation Tempo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Analyse de Consommation Électrique Tempo</h1>
+            <p class="subtitle">Importez votre fichier d'index CSV pour visualiser votre consommation</p>
+        </header>
+
+        <div class="upload-section">
+            <label for="fileInput">Fichier CSV :</label>
+            <input type="file" id="fileInput" accept=".csv" />
+            <div id="currentFileName" class="current-file-name"></div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyse en cours...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="results" class="results" style="display: none;">
+            <div class="controls-section">
+                <div class="year-carousel" id="yearCarousel" style="display: none;">
+                    <button class="carousel-btn" id="prevYear">‹</button>
+                    <div class="year-display" id="yearDisplay">2024</div>
+                    <button class="carousel-btn" id="nextYear">›</button>
+                </div>
+                
+                <div class="subscription-selector">
+                    <label for="subscriptionType">Type d'abonnement :</label>
+                    <select id="subscriptionType">
+                        <option value="6">6 kVA</option>
+                        <option value="9">9 kVA</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="comparisonSummary" class="comparison-summary" style="display: none;">
+                <div class="comparison-icon" id="comparisonIcon">💰</div>
+                <div class="comparison-content">
+                    <h3 id="comparisonTitle">Analyse de l'avantage Tempo</h3>
+                    <p class="comparison-message" id="comparisonMessage"></p>
+                    <div class="comparison-details">
+                        <div class="comparison-detail">
+                            <span class="comparison-label">Facture Tempo :</span>
+                            <span class="comparison-value" id="comparisonTempo">0,00 €</span>
+                        </div>
+                        <div class="comparison-detail">
+                            <span class="comparison-label">Facture Tarif Bleu :</span>
+                            <span class="comparison-value" id="comparisonBleu">0,00 €</span>
+                        </div>
+                        <div class="comparison-detail comparison-savings">
+                            <span class="comparison-label" id="savingsLabel">Économie :</span>
+                            <span class="comparison-value comparison-highlight" id="savingsValue">0,00 €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+ <div class="summary-cards">
+                <div class="card card-detailed">
+                    <h3>💰 Ma Facture Tempo</h3>
+                    <p class="value" id="totalCost">0,00 €</p>
+                    
+                    <div class="card-details">
+                        <div class="detail-section">
+                            <h4>Détail des Coûts par Catégorie</h4>
+                            <div class="detail-item">
+                                <span class="detail-label">🔵 Heures Pleines Bleu (0,1612 €/kWh):</span>
+                                <span class="detail-value" id="bleuHPCost">0,00 €</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">🔵 Heures Creuses Bleu (0,1325 €/kWh):</span>
+                                <span class="detail-value" id="bleuHCCost">0,00 €</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">⚪ Heures Pleines Blanc (0,1871 €/kWh):</span>
+                                <span class="detail-value" id="blancHPCost">0,00 €</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">⚪ Heures Creuses Blanc (0,1499 €/kWh):</span>
+                                <span class="detail-value" id="blancHCCost">0,00 €</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">🔴 Heures Pleines Rouge (0,7060 €/kWh):</span>
+                                <span class="detail-value" id="rougeHPCost">0,00 €</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">🔴 Heures Creuses Rouge (0,1575 €/kWh):</span>
+                                <span class="detail-value" id="rougeHCCost">0,00 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card card-detailed">
+                    <h3>🔄 Simulation Facture Tarif Bleu HP/HC</h3>
+                    <p class="value" id="totalCostBleuHPHC">0,00 €</p>
+                    
+                    <div class="card-details">
+                        <div class="detail-section">
+                            <h4>Détail des Coûts</h4>
+                            <div class="detail-item">
+                                <span class="detail-label">☀️ Heures Pleines (0,2065 €/kWh):</span>
+                                <span class="detail-value" id="hpCostBleu">0,00 €</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">🌙 Heures Creuses (0,1579 €/kWh):</span>
+                                <span class="detail-value" id="hcCostBleu">0,00 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-cards">
+                <div class="card card-detailed">
+                    <h3>Consommation Totale</h3>
+                    <p class="value" id="totalConsumption">0 kWh</p>
+                    
+                    <div class="card-details">
+                        <div class="detail-section">
+                            <h4>Détail par Couleur et Période</h4>
+                            <div class="detail-item">
+                                <span class="detail-label">🔵 Heures Pleines Bleu:</span>
+                                <span class="detail-value" id="bleuHPTotal">0 kWh</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">🔵 Heures Creuses Bleu:</span>
+                                <span class="detail-value" id="bleuHCTotal">0 kWh</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">⚪ Heures Pleines Blanc:</span>
+                                <span class="detail-value" id="blancHPTotal">0 kWh</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">⚪ Heures Creuses Blanc:</span>
+                                <span class="detail-value" id="blancHCTotal">0 kWh</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">🔴 Heures Pleines Rouge:</span>
+                                <span class="detail-value" id="rougeHPTotal">0 kWh</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">🔴 Heures Creuses Rouge:</span>
+                                <span class="detail-value" id="rougeHCTotal">0 kWh</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card card-summary">
+                    <h3>Répartition HP / HC</h3>
+                    <div class="hp-hc-summary">
+                        <div class="hp-hc-item">
+                            <span class="hp-hc-icon">☀️</span>
+                            <div class="hp-hc-info">
+                                <span class="hp-hc-label">Heures Pleines</span>
+                                <span class="hp-hc-value" id="hpSummary">0 kWh</span>
+                                <span class="hp-hc-percent" id="hpPercent">0%</span>
+                            </div>
+                        </div>
+                        <div class="hp-hc-item">
+                            <span class="hp-hc-icon">🌙</span>
+                            <div class="hp-hc-info">
+                                <span class="hp-hc-label">Heures Creuses</span>
+                                <span class="hp-hc-value" id="hcSummary">0 kWh</span>
+                                <span class="hp-hc-percent" id="hcPercent">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+           
+
+            <div class="chart-section">
+                <h2>Répartitions de Consommation</h2>
+                <div class="charts-row">
+                    <div class="chart-container">
+                        <canvas id="periodPieChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="hpHcPieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <h2>Répartition Mensuelle</h2>
+                <div class="chart-container-full">
+                    <canvas id="monthlyBarChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
