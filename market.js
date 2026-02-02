@@ -839,5 +839,89 @@ const marketOffers = [
       hp: 0.20240,
       hc: 0.15500
     }
+  },
+  {
+    provider: "Vattenfall",
+    offer: "Electricite Verte Serenite",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 16.83
+      },
+      {
+        kva: 9,
+        monthlyCost: 21.83
+      },
+      {
+        kva: 12,
+        monthlyCost: 25.68
+      },
+      {
+        kva: 15,
+        monthlyCost: 29.30
+      },
+      {
+        kva: 18,
+        monthlyCost: 33.03
+      },
+      {
+        kva: 24,
+        monthlyCost: 40.96
+      },
+      {
+        kva: 30,
+        monthlyCost: 48.27
+      },
+      {
+        kva: 36,
+        monthlyCost: 55.63
+      }
+    ],
+    tariff: {
+      hp: 0.18940,
+      hc: 0.14570
+    }
+  },
+  {
+    provider: "Vattenfall",
+    offer: "Electricite Verte Equilibre",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 16.83
+      },
+      {
+        kva: 9,
+        monthlyCost: 21.83
+      },
+      {
+        kva: 12,
+        monthlyCost: 25.68
+      },
+      {
+        kva: 15,
+        monthlyCost: 29.30
+      },
+      {
+        kva: 18,
+        monthlyCost: 33.03
+      },
+      {
+        kva: 24,
+        monthlyCost: 40.96
+      },
+      {
+        kva: 30,
+        monthlyCost: 48.27
+      },
+      {
+        kva: 36,
+        monthlyCost: 55.63
+      }
+    ],
+    tariff: {
+      hp: 0.19790,
+      hc: 0.15170
+    }
   }
 ];
