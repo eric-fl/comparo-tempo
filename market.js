@@ -923,5 +923,89 @@ const marketOffers = [
       hp: 0.19790,
       hc: 0.15170
     }
+  },
+  {
+    provider: "Plenitude",
+    offer: "Plenifix 1 an",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 18.05
+      },
+      {
+        kva: 9,
+        monthlyCost: 22.23
+      },
+      {
+        kva: 12,
+        monthlyCost: 26.08
+      },
+      {
+        kva: 15,
+        monthlyCost: 29.70
+      },
+      {
+        kva: 18,
+        monthlyCost: 33.43
+      },
+      {
+        kva: 24,
+        monthlyCost: 41.37
+      },
+      {
+        kva: 30,
+        monthlyCost: 48.67
+      },
+      {
+        kva: 36,
+        monthlyCost: 54.94
+      }
+    ],
+    tariff: {
+      hp: 0.19290,
+      hc: 0.14819
+    }
+  },
+  {
+    provider: "Plenitude",
+    offer: "Plenifix 2 ans",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 18.05
+      },
+      {
+        kva: 9,
+        monthlyCost: 22.23
+      },
+      {
+        kva: 12,
+        monthlyCost: 26.08
+      },
+      {
+        kva: 15,
+        monthlyCost: 29.70
+      },
+      {
+        kva: 18,
+        monthlyCost: 33.43
+      },
+      {
+        kva: 24,
+        monthlyCost: 41.37
+      },
+      {
+        kva: 30,
+        monthlyCost: 48.67
+      },
+      {
+        kva: 36,
+        monthlyCost: 54.94
+      }
+    ],
+    tariff: {
+      hp: 0.23018,
+      hc: 0.17478
+    }
   }
 ];
