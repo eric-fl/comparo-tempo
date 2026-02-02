@@ -440,56 +440,6 @@ $(document).ready(function() {
         const totalHC = totals.bleuHC + totals.blancHC + totals.rougeHC;
         const totalHPHC = totalHP + totalHC;
         
-        // Calculer la simulation avec le tarif Bleu HP/HC - récupérés depuis market.js
-        const bleuHPHCOffer = marketOffers.find(offer => offer.offer === "Bleu HP / HC");
-        const tarifsBleuHPHC = {
-            hp: bleuHPHCOffer.tariff.hp,
-            hc: bleuHPHCOffer.tariff.hc
-        };
-        
-        // Tarifs d'abonnement Bleu HP/HC - récupérés depuis market.js
-        const subscriptionPricesBleuHPHC = {};
-        bleuHPHCOffer.subscriptions.forEach(sub => {
-            subscriptionPricesBleuHPHC[sub.kva.toString()] = sub.monthlyCost;
-        });
-        
-        // Calculer les coûts HP/HC avec le tarif Bleu
-        const hpCostBleu = totalHP * tarifsBleuHPHC.hp;
-        const hcCostBleu = totalHC * tarifsBleuHPHC.hc;
-        const consumptionCostBleu = hpCostBleu + hcCostBleu;
-        
-        // Calculer le coût de l'abonnement Bleu HP/HC
-        const subscriptionCostBleu = subscriptionPricesBleuHPHC[subscriptionType] * numberOfMonths;
-        
-        // Calculer le coût total Bleu HP/HC
-        const totalCostBleuHPHC = consumptionCostBleu + subscriptionCostBleu;
-        
-        // Afficher les résultats de la simulation avec pourcentages
-        const hpCostBleuPercent = totalCostBleuHPHC > 0 ? ((hpCostBleu / totalCostBleuHPHC) * 100).toFixed(1) : 0;
-        const hcCostBleuPercent = totalCostBleuHPHC > 0 ? ((hcCostBleu / totalCostBleuHPHC) * 100).toFixed(1) : 0;
-        
-        const costPerMonthBleu = numberOfMonths > 0 ? (totalCostBleuHPHC / numberOfMonths) : 0;
-        $('#totalCostBleuHPHC').html(totalCostBleuHPHC.toFixed(2) + ' € <span style="font-size: 0.6em; opacity: 0.85;">(' + costPerMonthBleu.toFixed(2) + ' €/mois)</span>');
-        $('#hpCostBleu').text(hpCostBleu.toFixed(2) + ' € (' + hpCostBleuPercent + '%)');
-        $('#hcCostBleu').text(hcCostBleu.toFixed(2) + ' € (' + hcCostBleuPercent + '%)');
-        
-        // Supprimer l'ancienne ligne d'abonnement Bleu si elle existe
-        $('#subscriptionCostLineBleu').remove();
-        
-        // Ajouter une ligne pour l'abonnement dans la tuile de simulation
-        const subscriptionBleuPercent = totalCostBleuHPHC > 0 ? ((subscriptionCostBleu / totalCostBleuHPHC) * 100).toFixed(1) : 0;
-        const subscriptionLineBleu = `
-            <div id="subscriptionCostLineBleu" class="detail-item" style="border-top: 1px solid rgba(255, 255, 255, 0.3); margin-top: 10px; padding-top: 10px;">
-                <span class="detail-label">📅 Abonnement ${subscriptionType} kVA (${subscriptionPricesBleuHPHC[subscriptionType].toFixed(2)} € × ${numberOfMonths} mois):</span>
-                <span class="detail-value">${subscriptionCostBleu.toFixed(2)} € (${subscriptionBleuPercent}%)</span>
-            </div>
-        `;
-        
-        // Insérer la ligne d'abonnement après la dernière ligne de coût
-        $('#hcCostBleu').parent().parent().append(subscriptionLineBleu);
-        // Calculer les pourcentages
-        const hpPercent = totalHPHC > 0 ? ((totalHP / totalHPHC) * 100).toFixed(1) : 0;
-        const hcPercent = totalHPHC > 0 ? ((totalHC / totalHPHC) * 100).toFixed(1) : 0;
         
         // Afficher la tuile de résumé HP/HC
         $('#hpSummary').text(Math.round(totalHP) + ' kWh');
@@ -813,8 +763,8 @@ $(document).ready(function() {
                 
                 calculationDetails = `<div class="calculation-details">
                     <div><strong>Consommation:</strong></div>
-                    <div>HP: ${Math.round(totalHP)} kWh × ${offer.tariff.hp.toFixed(4)} € = ${hpCost.toFixed(2)} €</div>
-                    <div>HC: ${Math.round(totalHC)} kWh × ${offer.tariff.hc.toFixed(4)} € = ${hcCost.toFixed(2)} €</div>
+                    <div>HP: ${Math.round(totalHP)} kWh × ${offer.tariff.hp.toFixed(5)} € = ${hpCost.toFixed(2)} €</div>
+                    <div>HC: ${Math.round(totalHC)} kWh × ${offer.tariff.hc.toFixed(5)} € = ${hcCost.toFixed(2)} €</div>
                     <div><strong>Abonnement:</strong></div>
                     <div>${subscription.monthlyCost.toFixed(2)} € × ${numberOfMonths} mois = ${subscriptionCost.toFixed(2)} €</div>
                 </div>`;
@@ -850,7 +800,7 @@ $(document).ready(function() {
                 <div><strong>${offer.offer}</strong></div>
                 <div style="font-size: 0.85em; color: #666; margin-top: 5px;">
                     <div>Abonnement: ${subscription.monthlyCost.toFixed(2)} €/mois</div>
-                    <div>HP: ${offer.tariff.hp.toFixed(4)} €/kWh | HC: ${offer.tariff.hc.toFixed(4)} €/kWh</div>
+                    <div>HP: ${offer.tariff.hp.toFixed(5)} €/kWh | HC: ${offer.tariff.hc.toFixed(5)} €/kWh</div>
                 </div>
             `;
             

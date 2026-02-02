@@ -32,19 +32,19 @@ const edfTempo = {
     }
   ],
   tariff: {
-    hcBlue: 0.1325,
-    hpBlue: 0.1612,
-    hcWhite: 0.1499,
-    hpWhite: 0.1871,
-    hcRed: 0.1575,
-    hpRed: 0.7060
+    hcBlue: 0.13250,
+    hpBlue: 0.16120,
+    hcWhite: 0.14990,
+    hpWhite: 0.18710,
+    hcRed: 0.15750,
+    hpRed: 0.70600
   }
 };
 
 const marketOffers = [
   {
     provider: "EDF",
-    offer: "Bleu HP / HC",
+    offer: "Bleu",
     subscriptions: [
       {
         kva: 6,
@@ -80,13 +80,13 @@ const marketOffers = [
       }
     ],
     tariff: {
-      hp: 0.2065,
-      hc: 0.1579
+      hp: 0.20650,
+      hc: 0.15790
     }
   },
   {
     provider: "EDF",
-    offer: "Vert Electrique HP / HC",
+    offer: "Vert Electrique",
     subscriptions: [
       {
         kva: 6,
@@ -122,13 +122,13 @@ const marketOffers = [
       }
     ],
     tariff: {
-      hp: 0.2021,
-      hc: 0.1576
+      hp: 0.20210,
+      hc: 0.15760
     }
   },
   {
     provider: "EDF",
-    offer: "Vert Electrique Auto HP / HC",
+    offer: "Vert Electrique Auto",
     subscriptions: [
       {
         kva: 6,
@@ -164,8 +164,92 @@ const marketOffers = [
       }
     ],
     tariff: {
-      hp: 0.2229,
-      hc: 0.1300
+      hp: 0.22290,
+      hc: 0.13000
+    }
+  },
+  {
+    provider: "Gaz de Bordeaux",
+    offer: "NOVAFLEX ELEC",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.83
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.84
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.68
+      },
+      {
+        kva: 15,
+        monthlyCost: 27.30
+      },
+      {
+        kva: 18,
+        monthlyCost: 31.03
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.96
+      },
+      {
+        kva: 30,
+        monthlyCost: 46.28
+      },
+      {
+        kva: 36,
+        monthlyCost: 53.63
+      }
+    ],
+    tariff: {
+      hp: 0.19799,
+      hc: 0.15182
+    }
+  },
+  {
+    provider: "Gaz de Bordeaux",
+    offer: "NOVAFIXE ELEC",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.83
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.84
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.68
+      },
+      {
+        kva: 15,
+        monthlyCost: 27.30
+      },
+      {
+        kva: 18,
+        monthlyCost: 31.03
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.96
+      },
+      {
+        kva: 30,
+        monthlyCost: 46.28
+      },
+      {
+        kva: 36,
+        monthlyCost: 53.63
+      }
+    ],
+    tariff: {
+      hp: 0.17596,
+      hc: 0.13610
     }
   }
 ];
