@@ -503,5 +503,341 @@ const marketOffers = [
       hp: 0.21490,
       hc: 0.16390
     }
+  },
+  {
+    provider: "Alterna énergie",
+    offer: "Électricité verte 100% locale",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.05
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.19
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.01
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.63
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.35
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.25
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.55
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.91
+      }
+    ],
+    tariff: {
+      hp: 0.18850,
+      hc: 0.14930
+    }
+  },
+  {
+    provider: "Alterna énergie",
+    offer: "Électricité verte 100% française",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.05
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.19
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.01
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.63
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.35
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.25
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.55
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.91
+      }
+    ],
+    tariff: {
+      hp: 0.18500,
+      hc: 0.14670
+    }
+  },
+  {
+    provider: "SELIA",
+    offer: "Mon Contrat élec vert Fixe",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 16.66
+      },
+      {
+        kva: 9,
+        monthlyCost: 20.90
+      },
+      {
+        kva: 12,
+        monthlyCost: 24.97
+      },
+      {
+        kva: 15,
+        monthlyCost: 28.80
+      },
+      {
+        kva: 18,
+        monthlyCost: 32.76
+      },
+      {
+        kva: 24,
+        monthlyCost: 41.16
+      },
+      {
+        kva: 30,
+        monthlyCost: 48.90
+      },
+      {
+        kva: 36,
+        monthlyCost: 56.69
+      }
+    ],
+    tariff: {
+      hp: 0.20760,
+      hc: 0.15850
+    }
+  },
+  {
+    provider: "ENGIE",
+    offer: "Elec Référence 3 ans",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 17.37
+      },
+      {
+        kva: 9,
+        monthlyCost: 22.15
+      },
+      {
+        kva: 12,
+        monthlyCost: 27.03
+      },
+      {
+        kva: 15,
+        monthlyCost: 31.63
+      },
+      {
+        kva: 18,
+        monthlyCost: 35.97
+      },
+      {
+        kva: 24,
+        monthlyCost: 45.10
+      },
+      {
+        kva: 30,
+        monthlyCost: 53.94
+      },
+      {
+        kva: 36,
+        monthlyCost: 62.83
+      }
+    ],
+    tariff: {
+      hp: 0.20639,
+      hc: 0.17238
+    }
+  },
+  {
+    provider: "TotalEnergies",
+    offer: "Heures Eco",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.83
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.93
+      },
+      {
+        kva: 15,
+        monthlyCost: 27.61
+      },
+      {
+        kva: 18,
+        monthlyCost: 31.03
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.97
+      },
+      {
+        kva: 30,
+        monthlyCost: 46.27
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.54
+      }
+    ],
+    tariff: {
+      hp: 0.20650,
+      hc: 0.15790
+    }
+  },
+  {
+    provider: "TotalEnergies",
+    offer: "Standard Fixe",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.56
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.32
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.84
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.49
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.24
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.37
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.54
+      }
+    ],
+    tariff: {
+      hp: 0.20650,
+      hc: 0.15790
+    }
+  },
+  {
+    provider: "TotalEnergies",
+    offer: "Verte Fixe",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.56
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.32
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.84
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.49
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.24
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.37
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.54
+      }
+    ],
+    tariff: {
+      hp: 0.21050,
+      hc: 0.16080
+    }
+  },
+  {
+    provider: "TotalEnergies",
+    offer: "Fixe 2 ans",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.56
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.32
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.84
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.49
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.24
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.37
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.54
+      }
+    ],
+    tariff: {
+      hp: 0.20240,
+      hc: 0.15500
+    }
   }
 ];
