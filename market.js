@@ -1,6 +1,7 @@
 const edfTempo = {
   provider: "EDF",
   offer: "Tempo",
+  isLocal: false,
   subscriptions: [
     {
       kva: 6,
@@ -45,6 +46,7 @@ const marketOffers = [
   {
     provider: "EDF",
     offer: "Bleu",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -87,6 +89,7 @@ const marketOffers = [
   {
     provider: "EDF",
     offer: "Vert Electrique",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -129,6 +132,7 @@ const marketOffers = [
   {
     provider: "EDF",
     offer: "Vert Electrique Auto",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -171,6 +175,7 @@ const marketOffers = [
   {
     provider: "Gaz de Bordeaux",
     offer: "NOVAFLEX ELEC",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -213,6 +218,7 @@ const marketOffers = [
   {
     provider: "Gaz de Bordeaux",
     offer: "NOVAFIXE ELEC",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -253,8 +259,9 @@ const marketOffers = [
     }
   },
   {
-    provider: "GEDIA (localement)",
+    provider: "GEDIA",
     offer: "Tarif Réglementé Bleu",
+    isLocal: true,
     subscriptions: [
       {
         kva: 6,
@@ -295,8 +302,9 @@ const marketOffers = [
     }
   },
   {
-    provider: "GEDIA (localement)",
+    provider: "GEDIA",
     offer: "All Inclusive BT",
+    isLocal: true,
     subscriptions: [
       {
         kva: 6,
@@ -337,8 +345,9 @@ const marketOffers = [
     }
   },
   {
-    provider: "Synelva (localement)",
+    provider: "Synelva",
     offer: "Tarif Bleu Option Heures Creuses",
+    isLocal: true,
     subscriptions: [
       {
         kva: 6,
@@ -381,6 +390,7 @@ const marketOffers = [
   {
     provider: "Ohm Énergie",
     offer: "Classique HP/HC",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -423,6 +433,7 @@ const marketOffers = [
   {
     provider: "Ohm Énergie",
     offer: "Extra Eco Fixe HP/HC",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -465,6 +476,7 @@ const marketOffers = [
   {
     provider: "Ohm Énergie",
     offer: "Fixe 2 ans HP/HC",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -507,6 +519,7 @@ const marketOffers = [
   {
     provider: "Alterna énergie",
     offer: "Électricité verte 100% locale",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -549,6 +562,7 @@ const marketOffers = [
   {
     provider: "Alterna énergie",
     offer: "Électricité verte 100% française",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -591,6 +605,7 @@ const marketOffers = [
   {
     provider: "SELIA",
     offer: "Mon Contrat élec vert Fixe",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -633,6 +648,7 @@ const marketOffers = [
   {
     provider: "ENGIE",
     offer: "Elec Référence 3 ans",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -675,6 +691,7 @@ const marketOffers = [
   {
     provider: "TotalEnergies",
     offer: "Heures Eco",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -717,6 +734,7 @@ const marketOffers = [
   {
     provider: "TotalEnergies",
     offer: "Standard Fixe",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -759,6 +777,7 @@ const marketOffers = [
   {
     provider: "TotalEnergies",
     offer: "Verte Fixe",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -801,6 +820,7 @@ const marketOffers = [
   {
     provider: "TotalEnergies",
     offer: "Fixe 2 ans",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -843,6 +863,7 @@ const marketOffers = [
   {
     provider: "Vattenfall",
     offer: "Electricite Verte Serenite",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -885,6 +906,7 @@ const marketOffers = [
   {
     provider: "Vattenfall",
     offer: "Electricite Verte Equilibre",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -927,6 +949,7 @@ const marketOffers = [
   {
     provider: "Plenitude",
     offer: "Plenifix 1 an",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -969,6 +992,7 @@ const marketOffers = [
   {
     provider: "Plenitude",
     offer: "Plenifix 2 ans",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1011,6 +1035,7 @@ const marketOffers = [
   {
     provider: "Alpiq",
     offer: "Électricité Stable",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1053,6 +1078,7 @@ const marketOffers = [
   {
     provider: "Alpiq",
     offer: "Électricité Référence",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1095,6 +1121,7 @@ const marketOffers = [
   {
     provider: "Mint Energie",
     offer: "Online & Green",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1137,6 +1164,7 @@ const marketOffers = [
   {
     provider: "Mint Energie",
     offer: "Classic & Green",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1179,6 +1207,7 @@ const marketOffers = [
   {
     provider: "Mint Energie",
     offer: "Smart & Green",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1221,6 +1250,7 @@ const marketOffers = [
   {
     provider: "Dyneff",
     offer: "Électricité HP/HC",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1263,6 +1293,7 @@ const marketOffers = [
   {
     provider: "Dyneff",
     offer: "Électricité Verte HP/HC",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1303,8 +1334,9 @@ const marketOffers = [
     }
   },
   {
-    provider: "Volterres (localement)",
+    provider: "Volterres",
     offer: "Tarif HP/HC",
+    isLocal: true,
     subscriptions: [
       {
         kva: 6,
@@ -1347,6 +1379,7 @@ const marketOffers = [
   {
     provider: "Urban Solar Energy",
     offer: "Tarif Particuliers HP/HC",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1389,6 +1422,7 @@ const marketOffers = [
   {
     provider: "JPME",
     offer: "Tarifs HP/HC E-Fourniture",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1431,6 +1465,7 @@ const marketOffers = [
   {
     provider: "Enercoop",
     offer: "Flexibilité - heures creuses",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1473,6 +1508,7 @@ const marketOffers = [
   {
     provider: "Ekwateur",
     offer: "Électricité verte Prix fixe",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1491,6 +1527,7 @@ const marketOffers = [
   {
     provider: "Elmy",
     offer: "Électricité 100% renouvelable",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1533,6 +1570,7 @@ const marketOffers = [
   {
     provider: "ilek",
     offer: "ÉnRFixe+",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,
@@ -1575,6 +1613,7 @@ const marketOffers = [
   {
     provider: "Octopus Energy",
     offer: "Eco-conso fixe -12%",
+    isLocal: false,
     subscriptions: [
       {
         kva: 6,

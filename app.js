@@ -819,7 +819,7 @@ $(document).ready(function() {
             };
             
             // Vérifier si c'est une offre locale
-            if (offer.provider.includes('(localement)')) {
+            if (offer.isLocal) {
                 localOffersWithCost.push(offerData);
             } else {
                 allOffersWithCost.push(offerData);
