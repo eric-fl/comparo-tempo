@@ -548,6 +548,63 @@ h1 {
     font-weight: 700;
 }
 
+.collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.collapsible-header:hover {
+    color: #667eea;
+}
+
+.collapse-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.collapse-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+}
+
+.collapse-btn:active {
+    transform: scale(0.95);
+}
+
+.collapse-btn.collapsed {
+    transform: rotate(-90deg);
+}
+
+.collapse-btn.collapsed:hover {
+    transform: rotate(-90deg) scale(1.1);
+}
+
+.table-wrapper {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.table-wrapper.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+}
+
 .table-section {
     margin-top: 40px;
 }

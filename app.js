@@ -42,6 +42,35 @@ $(document).ready(function() {
             displayYearData(completeYears[currentYearIndex]);
         }
     });
+    
+    // Gestion du repliage du tableau de comparaison du marché
+    $('#marketCollapseBtn').on('click', function(e) {
+        e.stopPropagation();
+        const $btn = $(this);
+        const $wrapper = $('#marketTableWrapper');
+        
+        $btn.toggleClass('collapsed');
+        $wrapper.toggleClass('collapsed');
+    });
+    
+    // Gestion du repliage du tableau de comparaison local
+    $('#localCollapseBtn').on('click', function(e) {
+        e.stopPropagation();
+        const $btn = $(this);
+        const $wrapper = $('#localTableWrapper');
+        
+        $btn.toggleClass('collapsed');
+        $wrapper.toggleClass('collapsed');
+    });
+    
+    // Permettre de cliquer sur le header entier pour replier/déplier
+    $('#marketComparison .collapsible-header').on('click', function() {
+        $('#marketCollapseBtn').click();
+    });
+    
+    $('#localComparison .collapsible-header').on('click', function() {
+        $('#localCollapseBtn').click();
+    });
 
     function populateSubscriptionOptions() {
         const $select = $('#subscriptionType');

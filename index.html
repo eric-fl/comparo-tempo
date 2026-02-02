@@ -57,8 +57,11 @@
             </div>
 
             <div id="marketComparison" class="market-comparison" style="display: none;">
-                <h2>📊 Comparaison avec les Offres HP / HC du Marché</h2>
-                <div class="table-wrapper">
+                <h2 class="collapsible-header">
+                    <span>📊 Comparaison avec les Offres HP / HC du Marché</span>
+                    <button class="collapse-btn" id="marketCollapseBtn">▼</button>
+                </h2>
+                <div class="table-wrapper" id="marketTableWrapper">
                     <table id="comparisonTable">
                         <thead>
                             <tr>
@@ -77,8 +80,11 @@
             </div>
 
             <div id="localComparison" class="market-comparison" style="display: none;">
-                <h2>🏘️ Comparaison avec les Offres Locales</h2>
-                <div class="table-wrapper">
+                <h2 class="collapsible-header">
+                    <span>🏘️ Comparaison avec les Offres Locales</span>
+                    <button class="collapse-btn" id="localCollapseBtn">▼</button>
+                </h2>
+                <div class="table-wrapper" id="localTableWrapper">
                     <table id="localComparisonTable">
                         <thead>
                             <tr>
