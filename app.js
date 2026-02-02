@@ -6,34 +6,19 @@ $(document).ready(function() {
     let completeYears = []; // Stocker les années complètes
     let currentYearIndex = 0; // Index de l'année actuellement affichée
 
-    // Charger le type d'abonnement depuis localStorage ou utiliser la valeur par défaut
-    const savedSubscription = localStorage.getItem('subscriptionType');
-    if (savedSubscription) {
-        $('#subscriptionType').val(savedSubscription);
-    } else {
-        // Sauvegarder la valeur par défaut (6kVA) dans localStorage
-        localStorage.setItem('subscriptionType', '6');
-    }
-    
-    // Charger automatiquement le dernier fichier au démarrage
-    loadLastFile();
+    // Peupler la liste déroulante des abonnements depuis market.js
+    populateSubscriptionOptions();
 
     // Gestion du changement de fichier
     $('#fileInput').on('change', function(e) {
         const file = e.target.files[0];
         if (file) {
-            $('#currentFileName').text('📄 Fichier utilisé : ' + file.name);
             processFile(file);
-            // Sauvegarder le fichier dans localStorage
-            saveFileToLocalStorage(file);
         }
     });
     
     // Gestion du changement de type d'abonnement
     $('#subscriptionType').on('change', function() {
-        const subscriptionType = $(this).val();
-        localStorage.setItem('subscriptionType', subscriptionType);
-        
         // Recalculer et afficher les résultats si des données sont disponibles
         if (allData && completeYears.length > 0) {
             displayYearData(completeYears[currentYearIndex]);
@@ -58,38 +43,14 @@ $(document).ready(function() {
         }
     });
 
-    function saveFileToLocalStorage(file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            try {
-                // Sauvegarder le contenu du fichier et son nom dans localStorage
-                localStorage.setItem('lastFileName', file.name);
-                localStorage.setItem('lastFileContent', e.target.result);
-                console.log('Fichier sauvegardé dans localStorage:', file.name);
-            } catch (error) {
-                console.error('Erreur lors de la sauvegarde du fichier:', error);
-            }
-        };
-        reader.readAsText(file, 'UTF-8');
-    }
-
-    function loadLastFile() {
-        try {
-            const lastFileName = localStorage.getItem('lastFileName');
-            const lastFileContent = localStorage.getItem('lastFileContent');
-            
-            if (lastFileName && lastFileContent) {
-                console.log('Chargement du dernier fichier:', lastFileName);
-                $('#currentFileName').text('📄 Fichier utilisé : ' + lastFileName);
-                
-                // Traiter directement le contenu du fichier
-                processFileContent(lastFileContent);
-            } else {
-                console.log('Aucun fichier précédent trouvé');
-            }
-        } catch (error) {
-            console.error('Erreur lors du chargement du dernier fichier:', error);
-        }
+    function populateSubscriptionOptions() {
+        const $select = $('#subscriptionType');
+        $select.empty(); // Vider les options existantes
+        
+        // Récupérer les kVA disponibles depuis edfTempo
+        edfTempo.subscriptions.forEach(sub => {
+            $select.append(`<option value="${sub.kva}">${sub.kva} kVA</option>`);
+        });
     }
 
     function processFile(file) {
@@ -143,6 +104,9 @@ $(document).ready(function() {
             
             $('#loading').hide();
             $('#results').show();
+            
+            // Masquer le formulaire d'import une fois le rapport affiché
+            $('.upload-section').hide();
             
         } catch (error) {
             $('#loading').hide();
@@ -356,14 +320,14 @@ $(document).ready(function() {
             return;
         }
         
-        // Tarifs TTC par catégorie (en €/kWh)
+        // Tarifs TTC par catégorie (en €/kWh) - récupérés depuis market.js
         const tarifs = {
-            bleuHC: 0.1325,
-            bleuHP: 0.1612,
-            blancHC: 0.1499,
-            blancHP: 0.1871,
-            rougeHC: 0.1575,
-            rougeHP: 0.7060
+            bleuHC: edfTempo.tariff.hcBlue,
+            bleuHP: edfTempo.tariff.hpBlue,
+            blancHC: edfTempo.tariff.hcWhite,
+            blancHP: edfTempo.tariff.hpWhite,
+            rougeHC: edfTempo.tariff.hcRed,
+            rougeHP: edfTempo.tariff.hpRed
         };
         
         // Calculer les statistiques
@@ -405,11 +369,11 @@ $(document).ready(function() {
         // Récupérer le type d'abonnement
         const subscriptionType = $('#subscriptionType').val();
         
-        // Tarifs d'abonnement Tempo (différents de Bleu HP/HC)
-        const subscriptionPricesTempo = {
-            '6': 15.59,
-            '9': 19.38
-        };
+        // Tarifs d'abonnement Tempo - récupérés depuis market.js
+        const subscriptionPricesTempo = {};
+        edfTempo.subscriptions.forEach(sub => {
+            subscriptionPricesTempo[sub.kva.toString()] = sub.monthlyCost;
+        });
         
         // Calculer le nombre de mois dans les données
         const monthsSet = new Set();
@@ -476,17 +440,18 @@ $(document).ready(function() {
         const totalHC = totals.bleuHC + totals.blancHC + totals.rougeHC;
         const totalHPHC = totalHP + totalHC;
         
-        // Calculer la simulation avec le tarif Bleu HP/HC
+        // Calculer la simulation avec le tarif Bleu HP/HC - récupérés depuis market.js
+        const bleuHPHCOffer = marketOffers.find(offer => offer.offer === "Bleu HP / HC");
         const tarifsBleuHPHC = {
-            hp: 0.2065,
-            hc: 0.1579
+            hp: bleuHPHCOffer.tariff.hp,
+            hc: bleuHPHCOffer.tariff.hc
         };
         
-        // Tarifs d'abonnement Bleu HP/HC (différents de Tempo)
-        const subscriptionPricesBleuHPHC = {
-            '6': 15.65,
-            '9': 19.56
-        };
+        // Tarifs d'abonnement Bleu HP/HC - récupérés depuis market.js
+        const subscriptionPricesBleuHPHC = {};
+        bleuHPHCOffer.subscriptions.forEach(sub => {
+            subscriptionPricesBleuHPHC[sub.kva.toString()] = sub.monthlyCost;
+        });
         
         // Calculer les coûts HP/HC avec le tarif Bleu
         const hpCostBleu = totalHP * tarifsBleuHPHC.hp;
@@ -532,8 +497,8 @@ $(document).ready(function() {
         $('#hpPercent').text(hpPercent + '%');
         $('#hcPercent').text(hcPercent + '%');
         
-        // Afficher le résumé de comparaison
-        displayComparisonSummary(totalCost, totalCostBleuHPHC);
+        // Afficher le tableau comparatif du marché et la meilleure offre
+        displayMarketComparison(totalHP, totalHC, totalCost, numberOfMonths);
         
         // Créer les graphiques en camembert
         createPeriodPieChart(totals);
@@ -807,6 +772,150 @@ $(document).ready(function() {
                 }
             }
         });
+    }
+
+    function displayMarketComparison(totalHP, totalHC, totalCostTempo, numberOfMonths) {
+        const subscriptionType = $('#subscriptionType').val();
+        const $tableBody = $('#comparisonTableBody');
+        $tableBody.empty();
+        
+        // Tableau pour stocker toutes les offres avec leur coût total
+        const allOffersWithCost = [];
+        
+        // Ajouter Tempo uniquement pour la comparaison de la meilleure offre
+        const tempoOffer = {
+            provider: 'EDF',
+            offerName: 'EDF Tempo',
+            totalCost: totalCostTempo,
+            isTempo: true
+        };
+        
+        // Parcourir toutes les offres du marché
+        marketOffers.forEach(offer => {
+            // Trouver l'abonnement correspondant au kVA sélectionné
+            const subscription = offer.subscriptions.find(sub => sub.kva.toString() === subscriptionType);
+            
+            if (!subscription) return; // Passer si l'abonnement n'existe pas pour cette offre
+            
+            // Calculer le coût de l'abonnement
+            const subscriptionCost = subscription.monthlyCost * numberOfMonths;
+            
+            // Calculer le coût de consommation selon le type de tarif
+            let consumptionCost = 0;
+            let calculationDetails = '';
+            let tariffInfo = '';
+            
+            if (offer.tariff.hp && offer.tariff.hc) {
+                // Tarif HP/HC
+                const hpCost = totalHP * offer.tariff.hp;
+                const hcCost = totalHC * offer.tariff.hc;
+                consumptionCost = hpCost + hcCost;
+                
+                calculationDetails = `<div class="calculation-details">
+                    <div><strong>Consommation:</strong></div>
+                    <div>HP: ${Math.round(totalHP)} kWh × ${offer.tariff.hp.toFixed(4)} € = ${hpCost.toFixed(2)} €</div>
+                    <div>HC: ${Math.round(totalHC)} kWh × ${offer.tariff.hc.toFixed(4)} € = ${hcCost.toFixed(2)} €</div>
+                    <div><strong>Abonnement:</strong></div>
+                    <div>${subscription.monthlyCost.toFixed(2)} € × ${numberOfMonths} mois = ${subscriptionCost.toFixed(2)} €</div>
+                </div>`;
+            }
+            
+            // Calculer le coût total
+            const totalCost = consumptionCost + subscriptionCost;
+            
+            // Calculer la différence avec Tempo
+            const difference = totalCost - totalCostTempo;
+            const percentageDiff = totalCostTempo > 0 ? ((difference / totalCostTempo) * 100).toFixed(1) : 0;
+            
+            // Déterminer si c'est avantageux
+            let advantageBadge = '';
+            let differenceText = '';
+            
+            if (difference < 0) {
+                // Cette offre est moins chère que Tempo
+                advantageBadge = '<span class="advantage-badge advantageous">✓ Meilleure</span>';
+                differenceText = `<span style="color: #28a745; font-weight: 700;">-${Math.abs(difference).toFixed(2)} € (${Math.abs(percentageDiff)}%)</span>`;
+            } else if (difference > 0) {
+                // Tempo est moins cher
+                advantageBadge = '<span class="advantage-badge disadvantageous">✗ Plus chère</span>';
+                differenceText = `<span style="color: #dc3545; font-weight: 700;">+${difference.toFixed(2)} € (+${percentageDiff}%)</span>`;
+            } else {
+                // Égalité
+                advantageBadge = '<span class="advantage-badge neutral">= Équivalent</span>';
+                differenceText = '<span style="color: #6c757d; font-weight: 700;">0,00 €</span>';
+            }
+            
+            // Créer les informations de l'offre avec abonnement et tarifs
+            const offerInfo = `
+                <div><strong>${offer.offer}</strong></div>
+                <div style="font-size: 0.85em; color: #666; margin-top: 5px;">
+                    <div>Abonnement: ${subscription.monthlyCost.toFixed(2)} €/mois</div>
+                    <div>HP: ${offer.tariff.hp.toFixed(4)} €/kWh | HC: ${offer.tariff.hc.toFixed(4)} €/kWh</div>
+                </div>
+            `;
+            
+            // Stocker l'offre avec toutes ses informations
+            allOffersWithCost.push({
+                provider: offer.provider,
+                offerInfo: offerInfo,
+                calculationDetails: calculationDetails,
+                totalCost: totalCost,
+                differenceText: differenceText,
+                offerName: `${offer.provider} - ${offer.offer}`,
+                isTempo: false
+            });
+        });
+        
+        // Trier les offres par coût total croissant
+        allOffersWithCost.sort((a, b) => a.totalCost - b.totalCost);
+        
+        // Comparer Tempo avec toutes les offres pour déterminer la meilleure
+        const allOffersIncludingTempo = [tempoOffer, ...allOffersWithCost];
+        allOffersIncludingTempo.sort((a, b) => a.totalCost - b.totalCost);
+        
+        // Afficher la tuile de la meilleure offre
+        if (allOffersIncludingTempo.length > 0) {
+            const bestOffer = allOffersIncludingTempo[0];
+            
+            const summaryElement = $('#bestOfferSummary');
+            summaryElement.removeClass('advantageous disadvantageous');
+            
+            if (bestOffer.isTempo) {
+                // Tempo est la meilleure offre
+                summaryElement.addClass('advantageous');
+                $('#bestOfferIcon').text('🏆');
+                $('#bestOfferTitle').text('Meilleure Offre pour Vous');
+                $('#bestOfferMessage').text('Votre formule Tempo est la plus avantageuse pour votre profil de consommation !');
+                $('#bestOfferName').text('EDF Tempo');
+            } else {
+                // Une autre offre est meilleure
+                summaryElement.addClass('disadvantageous');
+                $('#bestOfferIcon').text('💡');
+                $('#bestOfferTitle').text('Meilleure Offre pour Vous');
+                $('#bestOfferMessage').text('Une offre moins chère que Tempo existe pour votre profil de consommation.');
+                $('#bestOfferName').text(bestOffer.offerName);
+            }
+            
+            $('#bestOfferSummary').show();
+        }
+        
+        // Générer les lignes du tableau dans l'ordre trié
+        allOffersWithCost.forEach(offerData => {
+            const row = `
+                <tr>
+                    <td><strong>${offerData.provider}</strong></td>
+                    <td>${offerData.offerInfo}</td>
+                    <td>${offerData.calculationDetails}</td>
+                    <td><strong>${offerData.totalCost.toFixed(2)} €</strong></td>
+                    <td>${offerData.differenceText}</td>
+                </tr>
+            `;
+            
+            $tableBody.append(row);
+        });
+        
+        // Afficher le tableau
+        $('#marketComparison').show();
     }
 
     function displayComparisonSummary(totalCostTempo, totalCostBleu) {

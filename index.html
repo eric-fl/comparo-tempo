@@ -10,11 +10,10 @@
     <div class="container">
         <header>
             <h1>📊 Analyse de Consommation Électrique Tempo</h1>
-            <p class="subtitle">Importez votre fichier d'index CSV pour visualiser votre consommation</p>
         </header>
 
         <div class="upload-section">
-            <label for="fileInput">Fichier CSV :</label>
+            <label for="fileInput">Import du fichier mes-index-elec-xxxxxxxxxxxx-codepostal.csv</label>
             <input type="file" id="fileInput" accept=".csv" />
             <div id="currentFileName" class="current-file-name"></div>
         </div>
@@ -43,30 +42,42 @@
                 </div>
             </div>
             
-            <div id="comparisonSummary" class="comparison-summary" style="display: none;">
-                <div class="comparison-icon" id="comparisonIcon">💰</div>
+            <div id="bestOfferSummary" class="comparison-summary" style="display: none;">
+                <div class="comparison-icon" id="bestOfferIcon">🏆</div>
                 <div class="comparison-content">
-                    <h3 id="comparisonTitle">Analyse de l'avantage Tempo</h3>
-                    <p class="comparison-message" id="comparisonMessage"></p>
+                    <h3 id="bestOfferTitle">Meilleure Offre pour Vous</h3>
+                    <p class="comparison-message" id="bestOfferMessage"></p>
                     <div class="comparison-details">
-                        <div class="comparison-detail">
-                            <span class="comparison-label">Facture Tempo :</span>
-                            <span class="comparison-value" id="comparisonTempo">0,00 €</span>
-                        </div>
-                        <div class="comparison-detail">
-                            <span class="comparison-label">Facture Tarif Bleu :</span>
-                            <span class="comparison-value" id="comparisonBleu">0,00 €</span>
-                        </div>
-                        <div class="comparison-detail comparison-savings">
-                            <span class="comparison-label" id="savingsLabel">Économie :</span>
-                            <span class="comparison-value comparison-highlight" id="savingsValue">0,00 €</span>
+                        <div class="comparison-detail" style="grid-column: 1 / -1;">
+                            <span class="comparison-label">Offre recommandée :</span>
+                            <span class="comparison-value" id="bestOfferName">-</span>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div id="marketComparison" class="market-comparison" style="display: none;">
+                <h2>📊 Comparaison avec les Offres du Marché</h2>
+                <div class="table-wrapper">
+                    <table id="comparisonTable">
+                        <thead>
+                            <tr>
+                                <th>Fournisseur</th>
+                                <th>Offre</th>
+                                <th>Détail des Calculs</th>
+                                <th>Coût Total</th>
+                                <th>Différence vs Tempo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparisonTableBody">
+                            <!-- Les lignes seront générées dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             
  <div class="summary-cards">
-                <div class="card card-detailed">
+                <div class="card card-detailed card-full-width">
                     <h3>💰 Ma Facture Tempo</h3>
                     <p class="value" id="totalCost">0,00 €</p>
                     
@@ -96,25 +107,6 @@
                             <div class="detail-item">
                                 <span class="detail-label">🔴 Heures Creuses Rouge (0,1575 €/kWh):</span>
                                 <span class="detail-value" id="rougeHCCost">0,00 €</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card card-detailed">
-                    <h3>🔄 Simulation Facture Tarif Bleu HP/HC</h3>
-                    <p class="value" id="totalCostBleuHPHC">0,00 €</p>
-                    
-                    <div class="card-details">
-                        <div class="detail-section">
-                            <h4>Détail des Coûts</h4>
-                            <div class="detail-item">
-                                <span class="detail-label">☀️ Heures Pleines (0,2065 €/kWh):</span>
-                                <span class="detail-value" id="hpCostBleu">0,00 €</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">🌙 Heures Creuses (0,1579 €/kWh):</span>
-                                <span class="detail-value" id="hcCostBleu">0,00 €</span>
                             </div>
                         </div>
                     </div>
@@ -205,6 +197,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="market.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
