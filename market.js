@@ -1301,5 +1301,317 @@ const marketOffers = [
       hp: 0.19796,
       hc: 0.16230
     }
+  },
+  {
+    provider: "Volterres (localement)",
+    offer: "Tarif HP/HC",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.56
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.32
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.84
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.49
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.24
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.37
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.54
+      }
+    ],
+    tariff: {
+      hp: 0.20650,
+      hc: 0.15790
+    }
+  },
+  {
+    provider: "Urban Solar Energy",
+    offer: "Tarif Particuliers HP/HC",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.96
+      },
+      {
+        kva: 9,
+        monthlyCost: 20.02
+      },
+      {
+        kva: 12,
+        monthlyCost: 24.28
+      },
+      {
+        kva: 15,
+        monthlyCost: 28.93
+      },
+      {
+        kva: 18,
+        monthlyCost: 33.59
+      },
+      {
+        kva: 24,
+        monthlyCost: 42.89
+      },
+      {
+        kva: 30,
+        monthlyCost: 52.20
+      },
+      {
+        kva: 36,
+        monthlyCost: 61.51
+      }
+    ],
+    tariff: {
+      hp: 0.22870,
+      hc: 0.17390
+    }
+  },
+  {
+    provider: "JPME",
+    offer: "Tarifs HP/HC E-Fourniture",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 14.00
+      },
+      {
+        kva: 9,
+        monthlyCost: 14.00
+      },
+      {
+        kva: 12,
+        monthlyCost: 14.00
+      },
+      {
+        kva: 15,
+        monthlyCost: 14.00
+      },
+      {
+        kva: 18,
+        monthlyCost: 14.00
+      },
+      {
+        kva: 24,
+        monthlyCost: 14.00
+      },
+      {
+        kva: 30,
+        monthlyCost: 14.00
+      },
+      {
+        kva: 36,
+        monthlyCost: 14.00
+      }
+    ],
+    tariff: {
+      hp: 0.21500,
+      hc: 0.18500
+    }
+  },
+  {
+    provider: "Enercoop",
+    offer: "Flexibilité - heures creuses",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 17.87
+      },
+      {
+        kva: 9,
+        monthlyCost: 24.03
+      },
+      {
+        kva: 12,
+        monthlyCost: 30.56
+      },
+      {
+        kva: 15,
+        monthlyCost: 34.94
+      },
+      {
+        kva: 18,
+        monthlyCost: 41.03
+      },
+      {
+        kva: 24,
+        monthlyCost: 52.09
+      },
+      {
+        kva: 30,
+        monthlyCost: 64.00
+      },
+      {
+        kva: 36,
+        monthlyCost: 75.91
+      }
+    ],
+    tariff: {
+      hp: 0.27456,
+      hc: 0.18950
+    }
+  },
+  {
+    provider: "Ekwateur",
+    offer: "Électricité verte Prix fixe",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 23.38
+      }
+    ],
+    tariff: {
+      hp: 0.18090,
+      hc: 0.13960
+    }
+  },
+  {
+    provider: "Elmy",
+    offer: "Électricité 100% renouvelable",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 17.30
+      },
+      {
+        kva: 9,
+        monthlyCost: 21.34
+      },
+      {
+        kva: 12,
+        monthlyCost: 25.37
+      },
+      {
+        kva: 15,
+        monthlyCost: 29.12
+      },
+      {
+        kva: 18,
+        monthlyCost: 32.92
+      },
+      {
+        kva: 24,
+        monthlyCost: 41.14
+      },
+      {
+        kva: 30,
+        monthlyCost: 49.00
+      },
+      {
+        kva: 36,
+        monthlyCost: 56.91
+      }
+    ],
+    tariff: {
+      hp: 0.20500,
+      hc: 0.15430
+    }
+  },
+  {
+    provider: "ilek",
+    offer: "ÉnRFixe+",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 28.08
+      },
+      {
+        kva: 9,
+        monthlyCost: 38.76
+      },
+      {
+        kva: 12,
+        monthlyCost: 45.20
+      },
+      {
+        kva: 15,
+        monthlyCost: 51.51
+      },
+      {
+        kva: 18,
+        monthlyCost: 57.04
+      },
+      {
+        kva: 24,
+        monthlyCost: 68.71
+      },
+      {
+        kva: 30,
+        monthlyCost: 73.42
+      },
+      {
+        kva: 36,
+        monthlyCost: 87.41
+      }
+    ],
+    tariff: {
+      hp: 0.20960,
+      hc: 0.16100
+    }
+  },
+  {
+    provider: "Octopus Energy",
+    offer: "Eco-conso fixe -12%",
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.74
+      },
+      {
+        kva: 9,
+        monthlyCost: 20.21
+      },
+      {
+        kva: 12,
+        monthlyCost: 24.28
+      },
+      {
+        kva: 15,
+        monthlyCost: 28.15
+      },
+      {
+        kva: 18,
+        monthlyCost: 32.13
+      },
+      {
+        kva: 24,
+        monthlyCost: 40.53
+      },
+      {
+        kva: 30,
+        monthlyCost: 48.34
+      },
+      {
+        kva: 36,
+        monthlyCost: 54.61
+      }
+    ],
+    tariff: {
+      hp: 0.18740,
+      hc: 0.14820
+    }
   }
 ];
