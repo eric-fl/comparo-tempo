@@ -20,9 +20,41 @@ $(document).ready(function() {
     // Gestion du changement de type d'abonnement
     $('#subscriptionType').on('change', function() {
         // Recalculer et afficher les résultats si des données sont disponibles
-        if (allData && completeYears.length > 0) {
-            displayYearData(completeYears[currentYearIndex]);
+        if (allData) {
+            const dateMode = $('input[name="dateMode"]:checked').val();
+            if (dateMode === 'year' && completeYears.length > 0) {
+                displayYearData(completeYears[currentYearIndex]);
+            } else if (dateMode === 'custom') {
+                applyCustomDateRange();
+            }
         }
+    });
+    
+    // Gestion du changement de mode de date
+    $('input[name="dateMode"]').on('change', function() {
+        const mode = $(this).val();
+        if (mode === 'year') {
+            $('#yearCarousel').show();
+            $('#customDateRange').hide();
+            if (allData && completeYears.length > 0) {
+                displayYearData(completeYears[currentYearIndex]);
+            }
+        } else {
+            $('#yearCarousel').hide();
+            $('#customDateRange').show();
+            // Initialiser les dates si pas encore fait
+            if (!$('#startDate').val() && allData && allData.length > 0) {
+                const firstDate = parseDateString(allData[0].date);
+                const lastDate = parseDateString(allData[allData.length - 1].date);
+                $('#startDate').val(formatDateForInput(firstDate));
+                $('#endDate').val(formatDateForInput(lastDate));
+            }
+        }
+    });
+    
+    // Gestion du bouton Appliquer pour la période personnalisée
+    $('#applyDateRange').on('click', function() {
+        applyCustomDateRange();
     });
     
     // Gestion du carrousel - année précédente
@@ -974,6 +1006,62 @@ $(document).ready(function() {
             $('#savingsLabel').text('Différence :');
             $('#savingsValue').text('0,00 €').css('color', '#667eea');
         }
+    }
+    
+    // Fonctions utilitaires pour les dates
+    function parseDateString(dateStr) {
+        // Convertir une date au format jj/mm/aaaa en objet Date
+        const parts = dateStr.split('/');
+        if (parts.length === 3) {
+            return new Date(parts[2], parts[1] - 1, parts[0]);
+        }
+        return new Date(dateStr);
+    }
+    
+    function formatDateForInput(date) {
+        // Convertir un objet Date au format aaaa-mm-jj pour les inputs de type date
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+    
+    function applyCustomDateRange() {
+        if (!allData) return;
+        
+        const startDateStr = $('#startDate').val();
+        const endDateStr = $('#endDate').val();
+        
+        if (!startDateStr || !endDateStr) {
+            $('#error').text('⚠️ Veuillez sélectionner une date de début et une date de fin.').show();
+            return;
+        }
+        
+        const startDate = new Date(startDateStr);
+        const endDate = new Date(endDateStr);
+        
+        if (startDate > endDate) {
+            $('#error').text('⚠️ La date de début doit être antérieure à la date de fin.').show();
+            return;
+        }
+        
+        $('#error').hide();
+        
+        // Filtrer les données selon la plage de dates
+        const filteredData = allData.filter(day => {
+            const dayDate = parseDateString(day.date);
+            return dayDate >= startDate && dayDate <= endDate;
+        });
+        
+        if (filteredData.length === 0) {
+            $('#error').text('⚠️ Aucune donnée trouvée pour cette période.').show();
+            return;
+        }
+        
+        console.log('Affichage des données pour la période personnalisée:', filteredData.length, 'jours');
+        
+        // Afficher les résultats pour cette période
+        displayResults(filteredData);
     }
 
 });

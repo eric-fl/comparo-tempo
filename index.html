@@ -33,6 +33,29 @@
                     <button class="carousel-btn" id="nextYear">›</button>
                 </div>
                 
+                <div class="date-range-selector">
+                    <label>
+                        <input type="radio" name="dateMode" id="yearMode" value="year" checked>
+                        Année complète
+                    </label>
+                    <label>
+                        <input type="radio" name="dateMode" id="customMode" value="custom">
+                        Période personnalisée
+                    </label>
+                </div>
+                
+                <div class="custom-date-range" id="customDateRange" style="display: none;">
+                    <div class="date-input-group">
+                        <label for="startDate">Du :</label>
+                        <input type="date" id="startDate">
+                    </div>
+                    <div class="date-input-group">
+                        <label for="endDate">Au :</label>
+                        <input type="date" id="endDate">
+                    </div>
+                    <button id="applyDateRange" class="apply-btn" title="Appliquer">✓</button>
+                </div>
+                
                 <div class="subscription-selector">
                     <label for="subscriptionType">Type d'abonnement :</label>
                     <select id="subscriptionType">
