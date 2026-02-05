@@ -351,40 +351,40 @@ const marketOffers = [
     subscriptions: [
       {
         kva: 6,
-        monthlyCost: 11.80
+        monthlyCost: 14.16
       },
       {
         kva: 9,
-        monthlyCost: 14.68
+        monthlyCost: 17.62
       },
       {
         kva: 12,
-        monthlyCost: 17.43
+        monthlyCost: 20.92
       },
       {
         kva: 15,
-        monthlyCost: 19.99
+        monthlyCost: 23.99
       },
       {
         kva: 18,
-        monthlyCost: 22.65
+        monthlyCost: 27.18
       },
       {
         kva: 24,
-        monthlyCost: 28.35
+        monthlyCost: 34.02
       },
       {
         kva: 30,
-        monthlyCost: 33.53
+        monthlyCost: 40.24
       },
       {
         kva: 36,
-        monthlyCost: 38.75
+        monthlyCost: 46.50
       }
     ],
     tariff: {
-      hp: 0.14120,
-      hc: 0.10070
+      hp: 0.16944,
+      hc: 0.12084
     }
   },
   {
