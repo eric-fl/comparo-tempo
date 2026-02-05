@@ -173,6 +173,92 @@ const marketOffers = [
     }
   },
   {
+    provider: "EDF",
+    offer: "Zen Online",
+    isLocal: false,
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.56
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.32
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.84
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.49
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.24
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.37
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.54
+      }
+    ],
+    tariff: {
+      hp: 0.19630,
+      hc: 0.15050
+    }
+  },
+  {
+    provider: "EDF",
+    offer: "Zen Fixe",
+    isLocal: false,
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.05
+      },
+      {
+        kva: 9,
+        monthlyCost: 18.91
+      },
+      {
+        kva: 12,
+        monthlyCost: 22.65
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.17
+      },
+      {
+        kva: 18,
+        monthlyCost: 29.81
+      },
+      {
+        kva: 24,
+        monthlyCost: 37.52
+      },
+      {
+        kva: 30,
+        monthlyCost: 44.65
+      },
+      {
+        kva: 36,
+        monthlyCost: 51.82
+      }
+    ],
+    tariff: {
+      hp: 0.18880,
+      hc: 0.14960
+    }
+  },
+  {
     provider: "Gaz de Bordeaux",
     offer: "NOVAFLEX ELEC",
     isLocal: false,
