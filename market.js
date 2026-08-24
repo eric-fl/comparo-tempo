@@ -5,31 +5,35 @@ const edfTempo = {
   subscriptions: [
     {
       kva: 6,
-      monthlyCost: 15.59
+      monthlyCost: 15.80
     },
     {
       kva: 9,
-      monthlyCost: 19.38
+      monthlyCost: 19.70
     },
     {
       kva: 12,
-      monthlyCost: 23.07
+      monthlyCost: 23.50
     },
     {
       kva: 15,
-      monthlyCost: 26.47
+      monthlyCost: 27.01
     },
     {
       kva: 18,
-      monthlyCost: 30.04
+      monthlyCost: 30.69
+    },
+    {
+      kva: 24,
+      monthlyCost: 38.21
     },
     {
       kva: 30,
-      monthlyCost: 44.73
+      monthlyCost: 45.82
     },
     {
       kva: 36,
-      monthlyCost: 52.42
+      monthlyCost: 53.76
     }
   ],
   tariff: {
@@ -50,40 +54,40 @@ const marketOffers = [
     subscriptions: [
       {
         kva: 6,
-        monthlyCost: 15.65
+        monthlyCost: 15.86
       },
       {
         kva: 9,
-        monthlyCost: 19.56
+        monthlyCost: 19.88
       },
       {
         kva: 12,
-        monthlyCost: 23.32
+        monthlyCost: 23.76
       },
       {
         kva: 15,
-        monthlyCost: 26.84
+        monthlyCost: 27.40
       },
       {
         kva: 18,
-        monthlyCost: 30.49
+        monthlyCost: 31.14
       },
       {
         kva: 24,
-        monthlyCost: 38.24
+        monthlyCost: 39.14
       },
       {
         kva: 30,
-        monthlyCost: 45.37
+        monthlyCost: 46.47
       },
       {
         kva: 36,
-        monthlyCost: 52.54
+        monthlyCost: 53.88
       }
     ],
     tariff: {
-      hp: 0.20650,
-      hc: 0.15790
+      hp: 0.21420,
+      hc: 0.15890
     }
   },
   {
