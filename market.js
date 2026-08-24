@@ -33,12 +33,12 @@ const edfTempo = {
     }
   ],
   tariff: {
-    hcBlue: 0.13250,
-    hpBlue: 0.16120,
-    hcWhite: 0.14990,
-    hpWhite: 0.18710,
-    hcRed: 0.15750,
-    hpRed: 0.70600
+    hcBlue: 0.13560,
+    hpBlue: 0.16540,
+    hcWhite: 0.15360,
+    hpWhite: 0.19210,
+    hcRed: 0.16150,
+    hpRed: 0.72950
   }
 };
 
