@@ -604,6 +604,7 @@ const marketOffers = [
     tariff: {
       hp: 0.21490,
       hc: 0.16390
+    }
     },
   {
     provider: "Ohm Énergie",
