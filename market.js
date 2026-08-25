@@ -269,40 +269,40 @@ const marketOffers = [
     subscriptions: [
       {
         kva: 6,
-        monthlyCost: 15.83
+        monthlyCost: 15.87
       },
       {
         kva: 9,
-        monthlyCost: 19.84
+        monthlyCost: 19.88
       },
       {
         kva: 12,
-        monthlyCost: 23.68
+        monthlyCost: 23.76
       },
       {
         kva: 15,
-        monthlyCost: 27.30
+        monthlyCost: 27.40
       },
       {
         kva: 18,
-        monthlyCost: 31.03
+        monthlyCost: 31.14
       },
       {
         kva: 24,
-        monthlyCost: 38.96
+        monthlyCost: 39.13
       },
       {
         kva: 30,
-        monthlyCost: 46.28
+        monthlyCost: 46.46
       },
       {
         kva: 36,
-        monthlyCost: 53.63
+        monthlyCost: 53.88
       }
     ],
     tariff: {
-      hp: 0.19799,
-      hc: 0.15182
+      hp: 0.20536,
+      hc: 0.15280
     }
   },
   {
@@ -312,40 +312,40 @@ const marketOffers = [
     subscriptions: [
       {
         kva: 6,
-        monthlyCost: 15.83
+        monthlyCost: 15.87
       },
       {
         kva: 9,
-        monthlyCost: 19.84
+        monthlyCost: 19.88
       },
       {
         kva: 12,
-        monthlyCost: 23.68
+        monthlyCost: 23.76
       },
       {
         kva: 15,
-        monthlyCost: 27.30
+        monthlyCost: 27.40
       },
       {
         kva: 18,
-        monthlyCost: 31.03
+        monthlyCost: 31.14
       },
       {
         kva: 24,
-        monthlyCost: 38.96
+        monthlyCost: 39.13
       },
       {
         kva: 30,
-        monthlyCost: 46.28
+        monthlyCost: 46.46
       },
       {
         kva: 36,
-        monthlyCost: 53.63
+        monthlyCost: 53.88
       }
     ],
     tariff: {
-      hp: 0.17596,
-      hc: 0.13610
+      hp: 0.19292,
+      hc: 0.14424
     }
   },
   {
