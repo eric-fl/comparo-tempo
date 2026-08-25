@@ -605,7 +605,7 @@ const marketOffers = [
       hp: 0.21490,
       hc: 0.16390
     }
-    },
+  },
   {
     provider: "Ohm Énergie",
     offer: "Ecodigo Printemps 2026 Fixe",
@@ -647,6 +647,49 @@ const marketOffers = [
     tariff: {
       hp: 0.16580,
       hc: 0.12890
+    }
+  },
+  {
+    provider: "Ohm Énergie",
+    offer: "Ecodigo Printemps 2026 Fixe (à partir de 2028)",
+    isLocal: false,
+    subscriptions: [
+      {
+        kva: 6,
+        monthlyCost: 15.65
+      },
+      {
+        kva: 9,
+        monthlyCost: 19.56
+      },
+      {
+        kva: 12,
+        monthlyCost: 23.32
+      },
+      {
+        kva: 15,
+        monthlyCost: 26.84
+      },
+      {
+        kva: 18,
+        monthlyCost: 30.49
+      },
+      {
+        kva: 24,
+        monthlyCost: 38.24
+      },
+      {
+        kva: 30,
+        monthlyCost: 45.37
+      },
+      {
+        kva: 36,
+        monthlyCost: 52.54
+      }
+    ],
+    tariff: {
+      hp: 0.20650,
+      hc: 0.15790
     }
   },
   {
